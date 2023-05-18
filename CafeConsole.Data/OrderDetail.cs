@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace CafeConsole.Data
 {
-    public class Product
+    public class OrderDetail
     {
         public string ProductName { get; set; } = string.Empty;
         public decimal UnitPrice { get; set; }
+        public int OrderQuantity { get; set; }
+        public string AmountTL { get; } = string.Empty;
 
-        public override string? ToString()
+        public decimal Amount()
         {
-            return base.ToString();
+            return Decimal.Parse(AmountTL);
         }
     }
 }
