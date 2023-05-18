@@ -8,6 +8,6 @@ namespace CafeConsole.Data
 {
     public enum OrderStatus
     {
-        Pending, Confirmed, Canceled
+        Active, Paid, Cancelled
     }
 }
