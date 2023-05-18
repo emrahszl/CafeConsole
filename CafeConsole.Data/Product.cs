@@ -10,5 +10,10 @@ namespace CafeConsole.Data
     {
         public string ProductName { get; set; }
         public decimal UnitPrice { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
