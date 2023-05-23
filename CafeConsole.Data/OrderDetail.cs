@@ -11,11 +11,11 @@ namespace CafeConsole.Data
         public string ProductName { get; set; } = string.Empty;
         public decimal UnitPrice { get; set; }
         public int OrderQuantity { get; set; }
-        public string AmountTL { get; } = string.Empty;
+        public string AmountTL { get { return Amount().ToString("c2"); } }
 
         public decimal Amount()
         {
-            return Decimal.Parse(AmountTL);
+            return UnitPrice * OrderQuantity;
         }
     }
 }

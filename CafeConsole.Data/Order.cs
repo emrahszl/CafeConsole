@@ -12,13 +12,10 @@ namespace CafeConsole.Data
         public OrderStatus Status { get; set; }
         public decimal PaidAmount { get; set; }
         public DateTime OpeningTime { get; set; } = DateTime.Now;
-        public DateTime ClosingTime { get; set; }
+        public DateTime? ClosingTime { get; set; }
         public List<OrderDetail> OrderDetails { get; set; } = new(); //new List<OrderDetail>(); aynı şeyi ifade eder.
-        public string TotalAmountTL { get; } = String.Empty;
+        public string TotalAmountTL => TotalAmount().ToString("c2"); //property
 
-        public decimal TotalAmount()
-        {
-            return Decimal.Parse(TotalAmountTL);
-        }
+        public decimal TotalAmount() => OrderDetails.Sum(x => x.Amount()); //method
     }
 }
