@@ -69,6 +69,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 93);
             dataGridView1.Name = "dataGridView1";
@@ -86,6 +87,7 @@
             // 
             // comboBox1
             // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(12, 46);
@@ -105,6 +107,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(532, 9);
@@ -115,6 +118,8 @@
             // 
             // comboBox2
             // 
+            comboBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboBox2.FormattingEnabled = true;
             comboBox2.Location = new Point(532, 46);
@@ -124,6 +129,7 @@
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button2.Location = new Point(670, 46);
             button2.Name = "button2";
@@ -134,32 +140,41 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label4.BackColor = Color.Tomato;
+            label4.Font = new Font("Arial Black", 72F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
             label4.Location = new Point(532, 93);
             label4.Name = "label4";
             label4.Size = new Size(241, 197);
             label4.TabIndex = 0;
+            label4.Text = "00";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(537, 306);
             label5.Name = "label5";
-            label5.Size = new Size(116, 21);
+            label5.Size = new Size(125, 21);
             label5.TabIndex = 0;
             label5.Text = "Ödeme Tutarı : ";
             // 
             // label6
             // 
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Anchor = AnchorStyles.Right;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(676, 306);
             label6.Name = "label6";
             label6.Size = new Size(97, 21);
             label6.TabIndex = 0;
+            label6.Text = "0.00₺";
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button3.BackColor = Color.Firebrick;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button3.ForeColor = Color.White;
@@ -172,6 +187,7 @@
             // 
             // button4
             // 
+            button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button4.BackColor = Color.ForestGreen;
             button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button4.ForeColor = Color.White;
@@ -184,6 +200,7 @@
             // 
             // button5
             // 
+            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button5.BackColor = Color.Gold;
             button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button5.ForeColor = Color.SaddleBrown;
@@ -214,6 +231,7 @@
             Controls.Add(label5);
             Controls.Add(label2);
             Controls.Add(label1);
+            MinimumSize = new Size(816, 489);
             Name = "SiparisForm";
             Text = "Masa 0";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
