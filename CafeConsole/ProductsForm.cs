@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CafeConsole
 {
-    public partial class UrunlerForm : Form
+    public partial class ProductsForm : Form
     {
-        public UrunlerForm()
+        public ProductsForm()
         {
             InitializeComponent();
         }

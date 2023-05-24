@@ -28,54 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
-            listView1 = new ListView();
-            ürünlerToolStripMenuItem = new ToolStripMenuItem();
-            geçmişSiparişlerToolStripMenuItem = new ToolStripMenuItem();
+            productsTsmi = new ToolStripMenuItem();
+            lastOrderTsmi = new ToolStripMenuItem();
+            lvTables = new ListView();
+            ilTables = new ImageList(components);
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { ürünlerToolStripMenuItem, geçmişSiparişlerToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { productsTsmi, lastOrderTsmi });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
-            // listView1
+            // productsTsmi
             // 
-            listView1.Dock = DockStyle.Fill;
-            listView1.Location = new Point(0, 24);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(800, 426);
-            listView1.TabIndex = 1;
-            listView1.UseCompatibleStateImageBehavior = false;
+            productsTsmi.Name = "productsTsmi";
+            productsTsmi.Size = new Size(58, 20);
+            productsTsmi.Text = "Ürünler";
             // 
-            // ürünlerToolStripMenuItem
+            // lastOrderTsmi
             // 
-            ürünlerToolStripMenuItem.Name = "ürünlerToolStripMenuItem";
-            ürünlerToolStripMenuItem.Size = new Size(58, 20);
-            ürünlerToolStripMenuItem.Text = "Ürünler";
+            lastOrderTsmi.Name = "lastOrderTsmi";
+            lastOrderTsmi.Size = new Size(108, 20);
+            lastOrderTsmi.Text = "Geçmiş Siparişler";
             // 
-            // geçmişSiparişlerToolStripMenuItem
+            // lvTables
             // 
-            geçmişSiparişlerToolStripMenuItem.Name = "geçmişSiparişlerToolStripMenuItem";
-            geçmişSiparişlerToolStripMenuItem.Size = new Size(108, 20);
-            geçmişSiparişlerToolStripMenuItem.Text = "Geçmiş Siparişler";
+            lvTables.Dock = DockStyle.Fill;
+            lvTables.LargeImageList = ilTables;
+            lvTables.Location = new Point(0, 24);
+            lvTables.Name = "lvTables";
+            lvTables.Size = new Size(800, 426);
+            lvTables.TabIndex = 1;
+            lvTables.UseCompatibleStateImageBehavior = false;
+            lvTables.DoubleClick += lvTables_DoubleClick;
+            // 
+            // ilTables
+            // 
+            ilTables.ColorDepth = ColorDepth.Depth8Bit;
+            ilTables.ImageStream = (ImageListStreamer)resources.GetObject("ilTables.ImageStream");
+            ilTables.TransparentColor = Color.Transparent;
+            ilTables.Images.SetKeyName(0, "bos");
+            ilTables.Images.SetKeyName(1, "dolu");
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(listView1);
+            Controls.Add(lvTables);
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cafe Consol";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -86,8 +99,9 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem ürünlerToolStripMenuItem;
-        private ToolStripMenuItem geçmişSiparişlerToolStripMenuItem;
-        private ListView listView1;
+        private ToolStripMenuItem productsTsmi;
+        private ToolStripMenuItem lastOrderTsmi;
+        private ListView lvTables;
+        private ImageList ilTables;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CafeConsole
 {
-    partial class UrunlerForm
+    partial class ProductsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -106,6 +106,7 @@
             Controls.Add(label1);
             Controls.Add(textBox1);
             Name = "UrunlerForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "UrunlerForm";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();

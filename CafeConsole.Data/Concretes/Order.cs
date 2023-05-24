@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CafeConsole.Data
+namespace CafeConsole.Data.Concretes
 {
     public class Order
     {

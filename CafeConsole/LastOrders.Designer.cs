@@ -108,6 +108,7 @@
             ClientSize = new Size(800, 726);
             Controls.Add(splitContainer1);
             Name = "GecmisSiparisler";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "GecmisSiparisler";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
