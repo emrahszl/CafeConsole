@@ -14,6 +14,8 @@ namespace CafeConsole
 {
     public partial class OrderForm : Form
     {
+        public event EventHandler<TableChangedEventArgs>? TableChanged;
+
         private readonly CafeData _cafeData;
         private readonly Order _order;
         private readonly BindingList<OrderDetail> _orderDetails;
@@ -42,6 +44,20 @@ namespace CafeConsole
             lblTableNo.Text = _order.TableNumber.ToString("00");
             lblTotalAmount.Text = _order.TotalAmountTL;
             cboxProduct.DataSource = _cafeData.Products;
+            LoadTableNumber();
+        }
+
+        private void LoadTableNumber()
+        {
+            cboxTableNo.DataSource = Enumerable.Range(1, _cafeData.NumberOfTable).Where(i => !_cafeData.ActiveOrders.Any(x => x.TableNumber == i)).ToList();
+
+            //Yukarıdaki tek satır kod ile aşağıdaki kod aynı işlemi yapar.
+
+            //for (int i = 1; i <= _cafeData.NumberOfTable; i++)
+            //{
+            //    if (!_cafeData.ActiveOrders.Any(x => x.TableNumber == i))
+            //        cboxTableNo.Items.Add(i.ToString());
+            //}
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -89,6 +105,21 @@ namespace CafeConsole
             _cafeData.ActiveOrders.Remove(_order);
             _cafeData.CompletedOrders.Add(_order);
             Close();
+        }
+
+        private void btnReplaceTable_Click(object sender, EventArgs e)
+        {
+            if (cboxTableNo.SelectedItem == null) return;
+            int currentTable = _order.TableNumber;
+            int targetTable = (int)cboxTableNo.SelectedItem;
+            _order.TableNumber = targetTable;
+            UpdateFormOrder();
+
+            if (TableChanged != null)
+            {
+                var args = new TableChangedEventArgs(currentTable, targetTable);
+                TableChanged(this, args);
+            }
         }
     }
 }

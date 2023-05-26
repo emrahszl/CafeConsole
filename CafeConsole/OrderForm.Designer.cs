@@ -180,6 +180,7 @@
             btnReplaceTable.TabIndex = 1;
             btnReplaceTable.Text = "TAŞI";
             btnReplaceTable.UseVisualStyleBackColor = true;
+            btnReplaceTable.Click += btnReplaceTable_Click;
             // 
             // lblTableNo
             // 

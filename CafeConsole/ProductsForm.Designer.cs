@@ -33,12 +33,12 @@
             label1 = new Label();
             btnAdd = new Button();
             dgvProducts = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
             nudUnitPrice = new NumericUpDown();
             label2 = new Label();
             btnCancel = new Button();
             btnUpdate = new Button();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudUnitPrice).BeginInit();
             SuspendLayout();
@@ -76,6 +76,7 @@
             // dgvProducts
             // 
             dgvProducts.AllowUserToAddRows = false;
+            dgvProducts.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProducts.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -89,6 +90,22 @@
             dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProducts.Size = new Size(609, 330);
             dgvProducts.TabIndex = 3;
+            // 
+            // Column1
+            // 
+            Column1.DataPropertyName = "ProductName";
+            Column1.HeaderText = "Ürün Adı";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.DataPropertyName = "UnitPrice";
+            dataGridViewCellStyle1.Format = "c2";
+            Column2.DefaultCellStyle = dataGridViewCellStyle1;
+            Column2.HeaderText = "Birim Fiyat";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
             // 
             // nudUnitPrice
             // 
@@ -123,6 +140,7 @@
             // 
             // btnUpdate
             // 
+            btnUpdate.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnUpdate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnUpdate.Location = new Point(549, 444);
             btnUpdate.Name = "btnUpdate";
@@ -131,22 +149,6 @@
             btnUpdate.Text = "DÜZENLE";
             btnUpdate.UseVisualStyleBackColor = true;
             btnUpdate.Click += btnUpdate_Click;
-            // 
-            // Column1
-            // 
-            Column1.DataPropertyName = "ProductName";
-            Column1.HeaderText = "Ürün Adı";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            Column2.DataPropertyName = "UnitPrice";
-            dataGridViewCellStyle1.Format = "c2";
-            Column2.DefaultCellStyle = dataGridViewCellStyle1;
-            Column2.HeaderText = "Birim Fiyat";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
             // 
             // ProductsForm
             // 
@@ -161,6 +163,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtProductName);
+            MinimumSize = new Size(667, 529);
             Name = "ProductsForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Ürünler";

@@ -7,6 +7,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,8 +20,21 @@ namespace CafeConsole
         public MainForm()
         {
             InitializeComponent();
-            LoadProducts();
+            LoadData();
             LoadTables();
+        }
+
+        private void LoadData()
+        {
+            try
+            {
+                string json = File.ReadAllText("veri.json");
+                dataBase = JsonSerializer.Deserialize<CafeData>(json)!;
+            }
+            catch (Exception)
+            {
+                LoadProducts();
+            }
         }
 
         private void LoadProducts()
@@ -37,7 +52,7 @@ namespace CafeConsole
             {
                 var lvi = new ListViewItem($"Masa {i}");
                 lvi.Tag = i;
-                lvi.ImageKey = "bos";
+                lvi.ImageKey = dataBase.ActiveOrders.Any(x => x.TableNumber == i) ? "dolu" : "bos"; //Aktif siparişler içerisinde TableNumber propertysi oluşan bir sipariş varsa (yani sipariş nesnesi varsa) o masayı açık gösteriyoruz.
                 lvTables.Items.Add(lvi);
             }
         }
@@ -56,10 +71,30 @@ namespace CafeConsole
             }
 
             var formOrder = new OrderForm(dataBase, order);
+            formOrder.TableChanged += FormOrder_TableChanged;
             formOrder.ShowDialog();
 
             if (order.Status != OrderStatus.Active)
                 lviClicked.ImageKey = "bos";
+        }
+
+        private void FormOrder_TableChanged(object? sender, TableChangedEventArgs e)
+        {
+            foreach (ListViewItem item in lvTables.Items)
+            {
+                int tableNo = (int)item.Tag;
+
+                if (tableNo == e.CurrentTable)
+                {
+                    item.ImageKey = "bos";
+                    item.Selected = false;
+                }
+                if (tableNo == e.TargetTable)
+                {
+                    item.ImageKey = "dolu";
+                    item.Selected = true;
+                }
+            }
         }
 
         private void lastOrderTsmi_Click(object sender, EventArgs e)
@@ -70,6 +105,17 @@ namespace CafeConsole
         private void productsTsmi_Click(object sender, EventArgs e)
         {
             new ProductsForm(dataBase).ShowDialog();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveAllData();
+        }
+
+        private void SaveAllData()
+        {
+            string json = JsonSerializer.Serialize(dataBase);
+            File.WriteAllText("veri.json", json);
         }
     }
 }
