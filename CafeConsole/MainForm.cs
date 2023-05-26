@@ -61,5 +61,15 @@ namespace CafeConsole
             if (order.Status != OrderStatus.Active)
                 lviClicked.ImageKey = "bos";
         }
+
+        private void lastOrderTsmi_Click(object sender, EventArgs e)
+        {
+            new LastOrdersForm(dataBase).ShowDialog();
+        }
+
+        private void productsTsmi_Click(object sender, EventArgs e)
+        {
+            new ProductsForm(dataBase).ShowDialog();
+        }
     }
 }

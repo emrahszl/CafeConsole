@@ -52,12 +52,14 @@
             productsTsmi.Name = "productsTsmi";
             productsTsmi.Size = new Size(58, 20);
             productsTsmi.Text = "Ürünler";
+            productsTsmi.Click += productsTsmi_Click;
             // 
             // lastOrderTsmi
             // 
             lastOrderTsmi.Name = "lastOrderTsmi";
             lastOrderTsmi.Size = new Size(108, 20);
             lastOrderTsmi.Text = "Geçmiş Siparişler";
+            lastOrderTsmi.Click += lastOrderTsmi_Click;
             // 
             // lvTables
             // 
@@ -89,7 +91,7 @@
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cafe Consol";
+            Text = "Kafe Konsol";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

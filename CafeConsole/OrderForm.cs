@@ -38,7 +38,7 @@ namespace CafeConsole
 
         private void UpdateFormOrder()
         {
-            Text = $"Masa {_order.TableNumber} - Açılış Saati : ({_order.OpeningTime.ToString("t")})";
+            Text = $"Masa {_order.TableNumber} - Açılış Saati : ({_order.OpeningTime.ToString("f")})";
             lblTableNo.Text = _order.TableNumber.ToString("00");
             lblTotalAmount.Text = _order.TotalAmountTL;
             cboxProduct.DataSource = _cafeData.Products;
